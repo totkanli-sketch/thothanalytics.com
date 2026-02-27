@@ -65,6 +65,26 @@
         .section-label { color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 20px; display: block; opacity: 0.6; }
         h2 { font-weight: 300; font-size: clamp(1.5rem, 5vw, 2.2rem); color: #fff; margin-bottom: 30px; }
 
+        /* Mission Box Layout (Section 01 Custom) */
+        .mission-box {
+            position: relative;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+            /* Overlay gradient to darken text areas, showing image details */
+            background: linear-gradient(90deg, rgba(5, 5, 5, 1) 30%, rgba(5, 5, 5, 0.7) 100%), url('mission_bg.png');
+            background-size: cover;
+            background-position: right center;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-box {
+                background: linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)), url('mission_bg.png');
+                padding: 25px;
+            }
+        }
+
         /* Dynamic Grid Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 100px; }
         .card { 
@@ -74,7 +94,7 @@
         .card:hover { border-color: rgba(88, 166, 255, 0.3); background: rgba(255, 255, 255, 0.04); }
         .card h3 { color: var(--blue); font-size: 1.1rem; margin-top: 0; font-weight: 400; font-family: 'JetBrains Mono', monospace; }
 
-        /* Section 02 Custom Layout */
+        /* Infrastructure Box Layout (Section 02 Custom) */
         .infrastructure-box {
             position: relative;
             padding: 40px;
@@ -117,16 +137,18 @@
         
         <div class="content-block" id="about">
             <span class="section-label">01 // CORE_MISSION</span>
-            <h2>The Science of Inefficiency</h2>
-            <p>
-                Thoth Analytics LLC operates on the foundational principle that global complexities exist, and there are many adaptive systems where informational and behavioral inefficiencies occasionally manifest as patterns. Our mission is the systematic identification and capture of these statistical anomalies through advanced quantitative modeling.
-            </p>
-            <p>
-                We bridge the gap between high-frequency noise and sustainable signal detection. By employing rigorous mathematical frameworks—ranging from volatility persistence analysis to spectral signal processing—we deconstruct data into actionable strategic logic. Our approach is rooted in the removal of cognitive bias, replacing emotional decision-making with the cold, objective discipline of algorithmic execution.
-            </p>
-            <p>
-                Every strategy engineered at Thoth Analytics undergoes exhaustive stress testing and walk-forward optimization. This ensures that our models remain robust in any environment. We don't just observe; we decode the underlying mathematical architecture to design systems built for long-term consistency.
-            </p>
+            <div class="mission-box">
+                <h2>The Science of Inefficiency</h2>
+                <p>
+                    Thoth Analytics LLC operates on the foundational principle that global complexities exist, and there are many adaptive systems where informational and behavioral inefficiencies occasionally manifest as patterns. Our mission is the systematic identification and capture of these statistical anomalies through advanced quantitative modeling.
+                </p>
+                <p>
+                    We bridge the gap between high-frequency noise and sustainable signal detection. By employing rigorous mathematical frameworks—ranging from volatility persistence analysis to spectral signal processing—we deconstruct data into actionable strategic logic. Our approach is rooted in the removal of cognitive bias, replacing emotional decision-making with the cold, objective discipline of algorithmic execution.
+                </p>
+                <p>
+                    Every strategy engineered at Thoth Analytics undergoes exhaustive stress testing and walk-forward optimization. This ensures that our models remain robust in any environment. We don't just observe; we decode the underlying mathematical architecture to design systems built for long-term consistency.
+                </p>
+            </div>
         </div>
 
         <div class="grid">
