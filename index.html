@@ -6,77 +6,107 @@
     <title>Thoth Analytics LLC | Quantitative Research & Strategy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #050505; --blue: #58a6ff; --text: #e6edf3; --card: rgba(255, 255, 255, 0.03); }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; overflow-x: hidden; }
-        
-        /* Hero Section with Big Image */
+        :root { --bg: #050505; --blue: #58a6ff; --text: #e6edf3; --card: rgba(255, 255, 255, 0.02); }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; overflow-x: hidden; cursor: default; }
+
+        /* Mouse Follower Glow */
+        #glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(88, 166, 255, 0.08) 0%, transparent 40%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* Hero Section */
         .hero { 
-            height: 80vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), url('bg.png');
+            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.95)), url('bg.png');
             background-size: cover; background-position: center; padding: 0 20px;
         }
-        h1 { font-weight: 300; font-size: 3.5rem; letter-spacing: -3px; margin: 0; color: #fff; }
-        .tagline { font-family: 'JetBrains Mono', monospace; color: var(--blue); font-size: 1rem; margin-top: 20px; letter-spacing: 2px; }
+        h1 { font-weight: 300; font-size: 3.5rem; letter-spacing: -3px; margin: 0; color: #fff; animation: tracking-in 1.5s ease-out; }
+        @keyframes tracking-in { from { letter-spacing: -15px; opacity: 0; } to { letter-spacing: -3px; opacity: 1; } }
 
-        .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
+        .tagline { font-family: 'JetBrains Mono', monospace; color: var(--blue); font-size: 0.9rem; margin-top: 25px; 
+                    border-right: 2px solid var(--blue); width: fit-content; white-space: nowrap; overflow: hidden;
+                    animation: typing 3s steps(40, end), blink 0.75s step-end infinite; }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--blue) } }
+
+        .container { max-width: 1000px; margin: auto; padding: 100px 20px; }
 
         /* Detail Sections */
-        .content-block { margin-bottom: 120px; }
-        .section-label { color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .content-block { margin-bottom: 120px; opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .content-block.visible { opacity: 1; transform: translateY(0); }
+        
+        .section-label { color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 20px; display: block; opacity: 0.6; }
         h2 { font-weight: 300; font-size: 2.2rem; color: #fff; margin-bottom: 30px; }
-        p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 25px; }
 
-        /* 3-Column Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); }
-        .card h3 { color: var(--blue); font-size: 1.2rem; margin-top: 0; font-weight: 400; }
+        /* Dynamic Grid Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { 
+            background: var(--card); border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 12px; 
+            position: relative; overflow: hidden; transition: 0.3s;
+        }
+        .card:hover { border-color: rgba(88, 166, 255, 0.3); background: rgba(255, 255, 255, 0.04); }
+        
+        /* The Scanning Line Effect */
+        .card::after {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--blue));
+            opacity: 0.05; animation: rotate 6s linear infinite; pointer-events: none;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Feature Section with Image Placeholder */
-        .feature-split { display: flex; align-items: center; gap: 50px; margin-top: 100px; flex-wrap: wrap; }
-        .feature-text { flex: 1; min-width: 300px; }
-        .feature-image { flex: 1; min-width: 300px; height: 400px; border-radius: 20px; background: url('feature1.png'); background-size: cover; border: 1px solid var(--blue); }
+        .card h3 { color: var(--blue); font-size: 1.1rem; margin-top: 0; font-weight: 400; font-family: 'JetBrains Mono', monospace; }
 
-        .footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 60px 20px; text-align: center; opacity: 0.6; font-size: 0.9rem; }
+        /* Tech Image Section */
+        .feature-split { display: flex; align-items: center; gap: 60px; margin-top: 120px; flex-wrap: wrap; }
+        .feature-text { flex: 1.2; min-width: 320px; }
+        .feature-image { 
+            flex: 0.8; min-width: 320px; height: 380px; border-radius: 4px; 
+            background: url('feature1.png'); background-size: cover; 
+            box-shadow: 0 0 40px rgba(88, 166, 255, 0.1); border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+
+        .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 20px; text-align: center; opacity: 0.5; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
+    <div id="glow"></div>
+
     <section class="hero">
         <h1>Thoth Analytics</h1>
-        <div class="tagline">QUANTITATIVE RESEARCH . SYSTEMATIC DESIGN . DATA SCIENCE</div>
+        <div class="tagline">// SYSTEMATIC_TRADING_RESEARCH_INITIALIZED</div>
     </section>
 
     <div class="container">
         
-        <div class="content-block">
-            <span class="section-label">01 // The Methodology</span>
-            <h2>Bridging Mathematics and Markets</h2>
-            <p>Thoth Analytics LLC operates at the intersection of rigorous statistical analysis and systematic trading execution. We believe that in the age of algorithmic dominance, a sustainable edge is found only through the synthesis of multi-dimensional data and disciplined risk architecture.</p>
-            <p>Our research methodology focuses on volatility persistence, cross-asset correlation, and mean-reversion patterns, transforming raw financial signals into high-fidelity strategic frameworks.</p>
+        <div class="content-block" id="about">
+            <span class="section-label">01 // CORE_MISSION</span>
+            <h2>The Science of Market Inefficiency</h2>
+            <p>Thoth Analytics LLC is a specialized quantitative boutique focusing on the development of multi-factor algorithmic models. We transform noise into signal by applying rigorous statistical filtering to global financial data.</p>
         </div>
 
         <div class="grid">
             <div class="card">
-                <h3>Alpha Generation</h3>
-                <p>Identifying non-random price movements through advanced mathematical modeling and signal processing.</p>
+                <h3>Alpha_Generation</h3>
+                <p>Identifying non-random patterns through spectral analysis and machine learning heuristics.</p>
             </div>
             <div class="card">
-                <h3>Risk Engineering</h3>
-                <p>Dynamic position sizing and tail-risk protection protocols designed for capital preservation across all market regimes.</p>
+                <h3>Risk_Architecture</h3>
+                <p>Dynamic capital allocation models engineered to withstand extreme market volatility events.</p>
             </div>
             <div class="card">
-                <h3>Execution Logic</h3>
-                <p>High-precision algorithmic deployment focused on reducing slippage and optimizing entry/exit efficiency.</p>
+                <h3>Systemic_Execution</h3>
+                <p>Low-latency execution logic designed to optimize liquidity capture and minimize market impact.</p>
             </div>
         </div>
 
-        <div class="feature-split">
+        <div class="feature-split content-block">
             <div class="feature-text">
-                <span class="section-label">02 // Technology Stack</span>
-                <h2>Institutional Grade Infrastructure</h2>
-                <p>We leverage industry-standard computational tools—including Python, R, and SQL—to process vast datasets and run backtesting simulations with micro-second precision.</p>
-                <p>Our infrastructure is built for reliability, ensuring that every quantitative insight is backed by robust data integrity and cloud-native computational power.</p>
+                <span class="section-label">02 // STACK_&_INFRASTRUCTURE</span>
+                <h2>Scalable Computational Intelligence</h2>
+                <p>Our infrastructure utilizes Python-native analytical libraries and cloud-based high-performance computing to run millions of simulations, ensuring strategy robustness across multiple market cycles.</p>
             </div>
             <div class="feature-image"></div>
         </div>
@@ -84,10 +114,27 @@
     </div>
 
     <footer class="footer">
-        <p><strong>Thoth Analytics LLC</strong> is a registered Limited Liability Company in the State of Wyoming, USA.</p>
+        <p><strong>Thoth Analytics LLC</strong> | Registered in Wyoming, USA</p>
         <p>30 N Gould St, Ste R, Sheridan, WY 82801 | info@thothanalytics.com</p>
-        <p>&copy; 2026 Thoth Analytics LLC. All rights reserved.</p>
+        <p>&copy; 2026 Thoth Analytics LLC. // NO_INVESTMENT_ADVICE_PROVIED</p>
     </footer>
+
+    <script>
+        // Mouse Move Glow Effect
+        document.addEventListener('mousemove', e => {
+            document.body.style.setProperty('--x', e.clientX + 'px');
+            document.body.style.setProperty('--y', e.clientY + 'px');
+        });
+
+        // Scroll Reveal Effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.content-block').forEach(block => observer.observe(block));
+    </script>
 
 </body>
 </html>
