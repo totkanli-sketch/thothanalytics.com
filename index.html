@@ -59,12 +59,34 @@
         .card h3 { color: var(--blue); font-size: 1.1rem; margin-top: 0; font-weight: 400; font-family: 'JetBrains Mono', monospace; }
 
         /* Tech Image Section */
-        .feature-split { display: flex; align-items: center; gap: 60px; margin-top: 120px; flex-wrap: wrap; }
-        .feature-text { flex: 1.2; min-width: 320px; }
+        .feature-split { 
+            display: flex; 
+            align-items: flex-start; /* Görseli üstten hizalarız */
+            gap: 60px; 
+            margin-top: 120px; 
+            flex-wrap: wrap; /* Mobilde alt alta geçmesi için */
+        }
+        .feature-text { 
+            flex: 1; /* Artık tam %50 yer kaplayacak */
+            min-width: 380px; /* Metnin daralmaması için minimum genişlik */
+        }
         .feature-image { 
-            flex: 0.8; min-width: 320px; height: 380px; border-radius: 4px; 
-            background: url('feature1.png'); background-size: cover; 
-            box-shadow: 0 0 40px rgba(88, 166, 255, 0.1); border: 1px solid rgba(88, 166, 255, 0.2);
+            flex: 1; /* Artık görsel de tam %50 yer kaplayacak */
+            min-width: 380px; 
+            height: 550px; /* Görseli uzattık */
+            border-radius: 4px; 
+            background: url('feature1.png'); 
+            background-size: cover; 
+            background-position: center center; /* Sunucu ışıklarını ortalar */
+            box-shadow: 0 0 50px rgba(88, 166, 255, 0.15); /* Işıltıyı biraz artırdık */
+            border: 1px solid rgba(88, 166, 255, 0.25);
+            transition: 0.5s; /* Hover efekti için yumuşatma */
+        }
+        
+        /* Görselin üzerine gelince parlaması için (Cool Faktörü) */
+        .feature-image:hover {
+            box-shadow: 0 0 70px rgba(88, 166, 255, 0.3);
+            border-color: rgba(88, 166, 255, 0.5);
         }
 
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 20px; text-align: center; opacity: 0.5; font-size: 0.85rem; }
