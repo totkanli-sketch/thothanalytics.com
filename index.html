@@ -99,6 +99,46 @@
             .mission-box, .infrastructure-box { padding: 25px; background: rgba(5, 5, 5, 0.95); }
             body { font-size: 15px; }
         }
+        /* Founder Box Update */
+        .founder-box {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+            background: linear-gradient(135deg, rgba(5, 5, 5, 1) 60%, rgba(88, 166, 255, 0.03) 100%);
+        }
+
+        .founder-image-container {
+            flex-shrink: 0;
+            width: 240px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .founder-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Fotoğrafı sitenin tonuna uydurmak için filtre */
+            filter: grayscale(100%) contrast(1.1);
+            transition: 0.5s ease;
+        }
+
+        .founder-box:hover .founder-photo {
+            filter: grayscale(40%) contrast(1);
+        }
+
+        @media (max-width: 850px) {
+            .founder-box { flex-direction: column; text-align: center; padding: 30px; }
+            .founder-image-container { width: 180px; height: 220px; }
+            .founder-meta { align-items: center; }
+            .meta-item { border-left: none; border-bottom: 1px solid var(--blue); padding: 5px 0; }
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -168,6 +208,30 @@
 
     </div>
 
+    <div class="content-block" id="founder">
+        <span class="section-label">03 // PRINCIPAL_RESEARCH</span>
+        <div class="founder-box">
+            <div class="founder-image-container">
+                <img src="founder.jpg" alt="[ADINIZ SOYADINIZ]" class="founder-photo">
+            </div>
+            
+            <div class="founder-content">
+                <h2 style="color: var(--blue); margin-bottom: 5px; font-weight: 400;">Hakan TOTKANLI</h2>
+                <h3 style="font-weight: 300; font-size: 1rem; opacity: 0.6; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace;">// LEAD_SYSTEMS_ARCHITECT</h3>
+                
+                <p>
+                    Thoth Analytics is led by <strong>Hakan TOTKANLI</strong>, a systems architect with over two decades of longitudinal research in financial time-series and algorithmic logic. Specializing in the engineering of high-fidelity execution frameworks within the <strong>MetaTrader (MQL4/MQL5)</strong> ecosystem, the Principal focuses on translating complex anomalies into deterministic architectures.
+                </p>
+                
+                <div class="founder-meta">
+                    <span class="meta-item">// EXPERTISE: MQL4_MQL5_ENGINEERING</span>
+                    <span class="meta-item">// FOCUS: QUANTITATIVE_RISK_MODELS</span>
+                    <span class="meta-item">// IDENTITY_VERIFIED: WY_USA_REGISTRY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <footer class="footer">
         <p><strong>Thoth Analytics LLC</strong> | Registered in Wyoming, USA</p>
         <p>30 N Gould St, Ste R, Sheridan, WY 82801 | info@thothanalytics.com</p>
