@@ -133,11 +133,30 @@
             filter: grayscale(40%) contrast(1);
         }
 
-        @media (max-width: 850px) {
-            .founder-box { flex-direction: column; text-align: center; padding: 30px; }
-            .founder-image-container { width: 180px; height: 220px; }
-            .founder-meta { align-items: center; }
-            .meta-item { border-left: none; border-bottom: 1px solid var(--blue); padding: 5px 0; }
+       @media (max-width: 850px) {
+            .founder-box { 
+                flex-direction: column; 
+                text-align: left; /* Ortalamayı kaldırdık, sola dayadık */
+                padding: 30px; 
+                align-items: flex-start; /* İçerikleri en baştan (soldan) başlattık */
+            }
+            
+            .founder-image-container { 
+                width: 180px; 
+                height: 220px; 
+                margin-bottom: 25px; /* Altındaki metinle arasına boşluk koyduk */
+            }
+        
+            .founder-meta { 
+                align-items: flex-start; /* Meta bilgilerini (linkleri) sola dayadık */
+            }
+        
+            .meta-item { 
+                border-left: 2px solid var(--blue); /* Soldaki mavi çizgiyi geri getirdik */
+                padding-left: 15px;
+                border-bottom: none; /* Önceki versiyondaki alt çizgiyi iptal ettik */
+                margin-bottom: 8px;
+            }
         }
         .registry-link {
             text-decoration: none; /* Alt çizgiyi kaldırır */
