@@ -139,6 +139,17 @@
             .founder-meta { align-items: center; }
             .meta-item { border-left: none; border-bottom: 1px solid var(--blue); padding: 5px 0; }
         }
+        .registry-link {
+            text-decoration: none; /* Alt çizgiyi kaldırır */
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .registry-link:hover {
+            color: #fff; /* Üzerine gelince parlaması için */
+            opacity: 1;
+            text-decoration: underline; /* Sadece üzerine gelince hafifçe belli olsun */
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -224,7 +235,9 @@
                     <div class="founder-meta">
                         <span class="meta-item">// EXPERTISE: MQL4_MQL5_ENGINEERING</span>
                         <span class="meta-item">// FOCUS: QUANTITATIVE_RISK_MODELS</span>
-                        <span class="meta-item">// IDENTITY_VERIFIED: WY_USA_REGISTRY</span>
+                        <a href="https://wyobiz.wyo.gov/Business/FilingSearch.aspx" target="_blank" class="meta-item registry-link">
+                            // IDENTITY_VERIFIED: WY_USA_REGISTRY (Filing #2026-001902403)
+                        </a>
                     </div>
                 </div>
             </div>
