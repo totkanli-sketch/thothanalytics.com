@@ -173,17 +173,35 @@
             filter: grayscale(0%);
         }
 
-        .footer-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
-        .footer-links a { color: var(--blue); text-decoration: none; transition: 0.3s; }
+/* Footer Linkleri Düzenlemesi */
+        .footer-links { 
+            margin: 25px 0; 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; /* Aralığı biraz daralttık */
+            flex-wrap: wrap; /* Mobilde sığmazsa alt satıra düzgünce geçer */
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.75rem; 
+        }
+
+        .footer-links a { 
+            color: var(--blue); 
+            text-decoration: none; 
+            transition: 0.3s; 
+            white-space: nowrap; /* Parantezlerin metinden kopmasını engeller */
+            padding: 5px 10px; /* Dokunmatik ekranlar için tıklama alanını artırır */
+        }
+
         .footer-links a:hover { opacity: 0.7; text-decoration: underline; }
 
-        @media (max-width: 850px) {
-            .founder-box { 
-                flex-direction: column; 
-                text-align: left;
-                padding: 30px; 
-                align-items: flex-start;
+        @media (max-width: 600px) {
+            .footer-links { 
+                gap: 10px; /* Mobilde linkler arası boşluğu minimize ettik */
             }
+            .footer-links a {
+                font-size: 0.7rem; /* Çok küçük ekranlarda fontu bir tık küçülttük */
+            }
+        }
             .founder-image-container { width: 180px; height: 220px; margin-bottom: 25px; }
             .founder-meta { align-items: flex-start; }
             .meta-item { margin-bottom: 8px; }
@@ -300,11 +318,12 @@
         </p>
         <p style="margin-top: 15px;">info@thothanalytics.com</p>
 
-	<div class="footer-links">
-    		<a href="https://www.linkedin.com/company/thoth-analytics" target="_blank">[ LINKEDIN ]</a>
-    		<a href="privacy.html">[ PRIVACY_POLICY ]</a>
-    		<a href="terms.html">[ TERMS_OF_SERVICE ]</a>
-	</div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/company/thoth-analytics" target="_blank">[ LINKEDIN_CORPORATE ]</a>
+            <a href="privacy.html">[ PRIVACY_POLICY ]</a>
+            <a href="terms.html">[ TERMS_OF_SERVICE ]</a>
+        </div>
+
         <p style="font-size: 0.7rem; margin-top: 40px; opacity: 0.4;">
             &copy; 2026 Thoth Analytics LLC. // NO_INVESTMENT_ADVICE_PROVIDED
         </p>
