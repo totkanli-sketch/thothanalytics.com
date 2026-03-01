@@ -90,16 +90,7 @@
             background-size: cover; background-position: right center; overflow: hidden;
         }
 
-        .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 20px; text-align: center; opacity: 0.6; font-size: 0.85rem; }
-        .footer-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
-        .footer-links a { color: var(--blue); text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { opacity: 0.7; }
-
-        @media (max-width: 768px) {
-            .mission-box, .infrastructure-box { padding: 25px; background: rgba(5, 5, 5, 0.95); }
-            body { font-size: 15px; }
-        }
-        /* Founder Box Update */
+        /* Founder Box */
         .founder-box {
             display: flex;
             gap: 50px;
@@ -124,7 +115,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Fotoğrafı sitenin tonuna uydurmak için filtre */
             filter: grayscale(100%) contrast(1.1);
             transition: 0.5s ease;
         }
@@ -133,32 +123,76 @@
             filter: grayscale(40%) contrast(1);
         }
 
-       @media (max-width: 850px) {
-            .founder-box { 
-                flex-direction: column; 
-                text-align: left; /* Ortalamayı kaldırdık, sola dayadık */
-                padding: 30px; 
-                align-items: flex-start; /* İçerikleri en baştan (soldan) başlattık */
-            }
-            
-            .founder-image-container { 
-                width: 180px; 
-                height: 220px; 
-                margin-bottom: 25px; /* Altındaki metinle arasına boşluk koyduk */
-            }
-        
-            .founder-meta { 
-                align-items: flex-start; /* Meta bilgilerini (linkleri) sola dayadık */
-            }
-        
-            .meta-item { 
-                border-left: 2px solid var(--blue); /* Soldaki mavi çizgiyi geri getirdik */
-                padding-left: 15px;
-                border-bottom: none; /* Önceki versiyondaki alt çizgiyi iptal ettik */
-                margin-bottom: 8px;
-            }
+        .founder-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 25px;
         }
 
+        .meta-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--blue);
+            opacity: 0.7;
+            border-left: 2px solid var(--blue);
+            padding-left: 15px;
+            text-decoration: none;
+        }
+
+        .registry-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Footer Updates */
+        .footer { 
+            border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 60px 20px; 
+            text-align: center; 
+            opacity: 0.7; 
+            font-size: 0.85rem; 
+        }
+
+        .footer-logo-wrap {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-seal {
+            max-width: 120px;
+            height: auto;
+            opacity: 0.5;
+            filter: grayscale(100%) drop-shadow(0 0 8px rgba(88, 166, 255, 0.1));
+            transition: 0.4s ease;
+        }
+
+        .footer-seal:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .footer-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
+        .footer-links a { color: var(--blue); text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { opacity: 0.7; text-decoration: underline; }
+
+        @media (max-width: 850px) {
+            .founder-box { 
+                flex-direction: column; 
+                text-align: left;
+                padding: 30px; 
+                align-items: flex-start;
+            }
+            .founder-image-container { width: 180px; height: 220px; margin-bottom: 25px; }
+            .founder-meta { align-items: flex-start; }
+            .meta-item { margin-bottom: 8px; }
+        }
+
+        @media (max-width: 768px) {
+            .mission-box, .infrastructure-box { padding: 25px; background: rgba(5, 5, 5, 0.95); }
+            body { font-size: 15px; }
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -230,7 +264,7 @@
             <span class="section-label">03 // PRINCIPAL_RESEARCH</span>
             <div class="founder-box">
                 <div class="founder-image-container">
-                    <img src="founder.jpg" alt="[ADINIZ SOYADINIZ]" class="founder-photo">
+                    <img src="founder.jpg" alt="Hakan TOTKANLI" class="founder-photo">
                 </div>
                 
                 <div class="founder-content">
@@ -241,32 +275,39 @@
                         Thoth Analytics is led by <strong>Hakan TOTKANLI</strong>, a systems architect with over two decades of longitudinal research in financial time-series and algorithmic logic. Specializing in the engineering of high-fidelity execution frameworks within the <strong>MetaTrader (MQL4/MQL5)</strong> ecosystem, the Principal focuses on translating complex anomalies into deterministic architectures.
                     </p>
                     
-                    <div class="founder-meta">
-                        <span class="meta-item">// EXPERTISE: MQL4_MQL5_ENGINEERING</span>
-                        <br>
-                        <span class="meta-item">// FOCUS: QUANTITATIVE_RISK_MODELS</span>
-                    </div>
+			<div class="founder-meta">
+			    <span class="meta-item">// EXPERTISE: MQL4_MQL5_ENGINEERING</span>
+			    <span class="meta-item">// FOCUS: QUANTITATIVE_RISK_MODELS</span>
+    			    <a href="https://www.linkedin.com/in/hakantotkanli" target="_blank" class="meta-item registry-link">
+        		    	// PROFESSIONAL_NETWORK: LINKEDIN_PROFILE
+    			    </a>
+</div>
                 </div>
             </div>
         </div>
         
     </div>
 
-    
-    
     <footer class="footer">
-        <p><strong>Thoth Analytics LLC</strong> | Registered in Wyoming, USA</p>
-        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; opacity: 0.5;">
-            30 N Gould St, Ste R, Sheridan, WY 82801 | SOS Filing #2026-001902403
-        </p>
-        <p>info@thothanalytics.com</p>
-
-        <div class="footer-links">
-            <a href="privacy.html">[ PRIVACY_POLICY ]</a>
-            <a href="terms.html">[ TERMS_OF_SERVICE ]</a>
+        <div class="footer-logo-wrap">
+            <img src="og-image.png" alt="Thoth Analytics Seal" class="footer-seal">
         </div>
 
-        <p>&copy; 2026 Thoth Analytics LLC. // NO_INVESTMENT_ADVICE_PROVIDED</p>
+        <p><strong>Thoth Analytics LLC</strong> | Registered in Wyoming, USA</p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; opacity: 0.5; margin-top: 8px;">
+            30 N Gould St, Ste R, Sheridan, WY 82801 | 
+            <a href="https://wyobiz.wyo.gov/Business/FilingSearch.aspx" target="_blank" style="color: inherit; text-decoration: none;">SOS Filing #2026-001902403</a>
+        </p>
+        <p style="margin-top: 15px;">info@thothanalytics.com</p>
+
+	<div class="footer-links">
+    		<a href="https://www.linkedin.com/company/thoth-analytics" target="_blank">[ LINKEDIN_CORPORATE ]</a>
+    		<a href="privacy.html">[ PRIVACY_POLICY ]</a>
+    		<a href="terms.html">[ TERMS_OF_SERVICE ]</a>
+	</div>
+        <p style="font-size: 0.7rem; margin-top: 40px; opacity: 0.4;">
+            &copy; 2026 Thoth Analytics LLC. // NO_INVESTMENT_ADVICE_PROVIDED
+        </p>
     </footer>
 
     <script>
