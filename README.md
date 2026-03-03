@@ -14,7 +14,7 @@ Mathematical Rendering: Integrated MathJax v3 for LaTeX rendering of statistical
 Performance: Zero external frameworks (No React/Vue/Angular) to eliminate overhead and behavioral artifacts.
 
 02 // REPOSITORY_STRUCTURE
-Plaintext
+
 ├── index.html          # Core architecture and system interface
 ├── favicon.png         # Brand identity asset
 ├── og-image.png        # Open Graph sharing metadata asset
