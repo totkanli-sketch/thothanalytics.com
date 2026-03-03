@@ -29,7 +29,10 @@ Responsive Determinism: Consistent rendering across mobile, desktop, and profess
 
 **04 // CORPORATE_IDENTITY**
 Entity: Thoth Analytics LLC
+
 Filing: Wyoming SOS #2026-001902403
+
 Principal: Hakan Totkanli (Lead Systems Architect)
+
 Domain: thothanalytics.com
 NOTICE: This repository hosts the public-facing corporate interface. Proprietary MQL4/MQL5 execution kernels and high-fidelity research data are maintained in private, isolated repositories within the Thoth Analytics organization.
